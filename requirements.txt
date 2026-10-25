@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+pydantic-settings
+langgraph
+langchain-groq
+pinecone
+tavily-python
+pymupdf
+certifi
+httpx
+groq
+langgraph-checkpoint-sqlite
