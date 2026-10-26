@@ -38,9 +38,7 @@
 
 ### ***🌐 Live Demo***
 
-***Web Application 👉 [Care Health System – Medical Education Assistant](https://care-assistent.onrender.com)***
-
-> ⏳ Hosted on a free tier: the first load may take up to a minute (cold start).
+***Web Application 👉 [Medical Assistent](https://care-assistent.onrender.com)***
 
 ---
 
@@ -63,8 +61,6 @@
 - 🎤 Voice input (microphone) and 🔊 "Read answer" text-to-speech
 - 📄 Add your own files to the knowledge base (PDF, DOCX, TXT, CSV)
 - 🧠 Conversation memory
-- ⚡ Quick-prompt chips (e.g. *Persistent headache causes*, *Type 1 vs type 2 diabetes*, *Heart attack warning signs*, *Better sleep habits*)
-- 🟢 Service status badge, index name and embedding dimension shown in the sidebar
 - 🌑 Modern dark-theme interface with a "New chat" button
 
 ---
@@ -178,44 +174,6 @@ Care_Health_System/
 ├── requirements.txt               # Python dependencies
 └── run.py                         # Run the application
 ```
-
----
-
-### ***⚙️ Getting Started***
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/<your-username>/Care_Health_System.git
-cd Care_Health_System
-
-# 2. Create and activate a virtual environment
-python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Configure environment variables
-# Create a .env file and add your keys, for example:
-#   PINECONE_API_KEY=your_key
-#   GROQ_API_KEY=your_key
-#   TAVILY_API_KEY=your_key
-
-# 5. Ingest the medical knowledge base
-python src/agent/ingest.py
-
-# 6. Run the application
-python run.py
-```
-
-### ***🐳 Run with Docker***
-
-```bash
-docker build -t care-health-system .
-docker run -p 8000:8080 --env-file .env care-health-system
-```
-
-The app is then available at `http://localhost:8000`. Keep `.env` private. The embedding model must match the Pinecone index dimension (the default MiniLM model produces 384-dimensional vectors).
 
 ---
 
