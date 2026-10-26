@@ -1,3 +1,4 @@
+import logging
 import sqlite3
 from typing import TypedDict
 from langgraph.graph import StateGraph, END
@@ -7,6 +8,8 @@ from tavily import TavilyClient
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from src.agent.config import settings
 from src.agent.knowledge import search_kb
+
+logger = logging.getLogger(__name__)
 
 ## System Prompt
 SYSTEM = """You are a careful medical education and triage assistant, 
@@ -74,8 +77,9 @@ def web_search(state):
                 for x in data.get("results", [])
             ]
         }
-    except Exception:
-        return {"web": []}
+    except Exception as exc:
+        logger.error("Web search failed (%s)", type(exc).__name__)
+        raise
 
 
 def answer(state):

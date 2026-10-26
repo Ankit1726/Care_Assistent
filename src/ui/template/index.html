@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#070d14">
+    <title>Health Care System⚕️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Manrope:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+
+    <div class="shell">
+        <!-- Sidebar -->
+        <aside class="side">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 3h4v7h7v4h-7v7h-4v-7H3v-4h7z" />
+                    </svg>
+                </div>
+                <div>
+                    <h1>Care Health System</h1>
+                    <p>Medical education assistant</p>
+                </div>
+            </div>
+
+            <svg class="ecg" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 30h70l10-4 8 4h20l8-24 12 48 10-24h20l8-6 8 6h126" />
+            </svg>
+
+            <span id="status" class="status">Checking...</span>
+            <div class="meta-block" aria-live="polite">
+                <div class="meta-item">
+                    <span>Index</span>
+                    <strong id="pineconeName">medical-agent</strong>
+                </div>
+                <div class="meta-item">
+                    <span>Dimension</span>
+                    <strong id="pineconeDimension">384</strong>
+                </div>
+            </div>
+
+            <div class="quick">
+                <h2>Try asking</h2>
+                <button class="chip" type="button"
+                    data-prompt="What are common causes of a persistent headache?">Persistent headache causes</button>
+                <button class="chip" type="button"
+                    data-prompt="Explain the difference between type 1 and type 2 diabetes.">Type 1 vs type 2
+                    diabetes</button>
+                <button class="chip" type="button" data-prompt="What are the warning signs of a heart attack?">Heart
+                    attack warning signs</button>
+                <button class="chip" type="button" data-prompt="How can I improve my sleep quality?">Better sleep
+                    habits</button>
+            </div>
+
+            <div class="kb">
+                <h2>Knowledge base</h2>
+                <label class="chip" for="kbfile">📄 Add a file (PDF, DOCX, TXT, CSV)</label>
+                <input id="kbfile" type="file" accept=".pdf,.docx,.txt,.md,.csv" hidden>
+                <p id="kbstatus" aria-live="polite"></p>
+            </div>
+
+            <div class="notice">
+                <strong>Educational guidance only.</strong> Not a diagnosis. For severe symptoms, contact emergency
+                services.
+            </div>
+
+            <details>
+                <summary>API access (optional)</summary>
+                <input id="token" type="password" placeholder="API_TOKEN from .env" autocomplete="off">
+            </details>
+        </aside>
+
+        <!-- Chat -->
+        <main class="chat">
+            <header class="chat-head">
+                <div>
+                    <h2>Health assistant⚕️</h2>
+                    <p>Knowledge base + web research, with cited sources</p>
+                </div>
+                <button id="clear" class="ghost" type="button" title="Start a new chat">New chat</button>
+            </header>
+
+            <section id="messages" aria-live="polite">
+                <article class="bot">Hello! Ask a medical question, upload an image, or use the microphone. I'll cite
+                    available sources and explain uncertainty✨</article>
+            </section>
+
+            <div id="preview" hidden>
+                <img id="thumbnail" alt="Selected image">
+                <button id="remove" type="button">Remove image ×</button>
+            </div>
+
+            <div class="camera-wrap">
+                <video id="video" autoplay playsinline muted hidden></video>
+                <div id="cameraActions" hidden>
+                    <button id="snap" type="button" class="primary">Capture</button>
+                    <button id="closeCamera" type="button" class="ghost">Close camera</button>
+                </div>
+                <canvas id="canvas" hidden></canvas>
+            </div>
+
+            <form id="chatForm">
+                <textarea id="message" placeholder="Describe your symptoms or ask a question..." rows="2" required
+                    maxlength="4000"></textarea>
+                <div class="toolbar">
+                    <label class="action" for="image" title="Upload image">📎 <span>Image</span></label>
+                    <input id="image" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+                    <button class="action" id="camera" type="button" title="Use camera">📷 <span>Camera</span></button>
+                    <button class="action" id="mic" type="button" title="Voice input">🎤 <span>Voice</span></button>
+                    <button class="action" id="listen" type="button" title="Read answer aloud">🔊 <span>Read
+                            answer</span></button>
+                    <button id="send" type="submit" class="primary">Send ➜</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <footer class="foot">
+        Made with <span class="heart" role="img" aria-label="love">❤️</span> by <strong>Ankit</strong>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
